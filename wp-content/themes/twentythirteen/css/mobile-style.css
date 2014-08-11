@@ -1,0 +1,24 @@
+.headerWrapp{position: relative!important;height: 80px!important;}
+#header{height: 80px!important;}
+.topBorder, .mobile-menu{display: none;}
+.logoHolder a{padding-top: 10px!important;}
+.article{padding-top: 0!important;height: 1000px!important;}
+.app_store_but {
+	margin: 30px auto;
+	display: block;
+	width: 333px;
+}
+.mobile-but{padding: 0px!important; width: 100%!important;}
+.mobile-but a {text-align: center!important; width:100%!important; margin: 0 auto!important; float: none!important; margin-bottom: 25px!important;}
+.mobile-but a img{width:100%!important; max-width: 350px!important;}
+#screenshots .large-12 h1, #news .large-12 h1, #contact .large-12 h1, #features .large-12 h2{font-size: 40px;}
+#tabs > ul li a{padding-right: 50px;}
+#scene18 {top:25%!important;}
+#scene18 li img {width: 100%;}
+body .reveal-modal .close-reveal-modal {
+	font-size: 46px;
+	font-weight: 100;
+	font-family: 'Roboto', sans-serif;
+	top: 0.2em;
+	right: 0.4em;
+}
