@@ -24,4 +24,13 @@ Author URI: http://localhost
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+define( 'WP_SNIP_APP_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
+
+wp_register_script('snipFiles', '/wp-content/plugins/snipApp/includes/js/snipFiles.js');
+
+wp_enqueue_script('snipFiles');
+
+require_once WP_SNIP_APP_PLUGIN_DIR . '/settings.php';
+
 ?>
