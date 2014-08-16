@@ -27,8 +27,10 @@ Author URI: http://localhost
 
 define( 'WP_SNIP_APP_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
 
+//wp_register_script('jquery', '/wp-content/plugins/snipApp/includes/js/jquery-1.11.1.min.js');
 wp_register_script('snipFiles', '/wp-content/plugins/snipApp/includes/js/snipFiles.js');
 
+//wp_enqueue_script('jquery');
 wp_enqueue_script('snipFiles');
 
 require_once WP_SNIP_APP_PLUGIN_DIR . '/settings.php';

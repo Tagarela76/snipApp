@@ -1,7 +1,10 @@
 <div>
-    <input type = 'text' >
-    <input type="button" value="search Files" onclick='snipApi.getFileList()'>
+    <input type = "text" id="fileName" />
+    <input type="button" value="FIND FILES" id='searchFileButton' onclick='page.snipApi.findFileByName();'/> 
 </div>
-<div id='snipFileList'>
+<div id='snipFileLoadingContainer' style="display: none;">
+    <img src="wp-content/plugins/snipApp/includes/images/loading.gif"/>
+</div>
+<div id='snipFileListContainer'>
     
 </div>
