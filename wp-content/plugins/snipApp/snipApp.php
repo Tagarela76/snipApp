@@ -25,14 +25,20 @@ Author URI: http://localhost
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+global $snipGeneral;
+
 define( 'WP_SNIP_APP_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
 
-//wp_register_script('jquery', '/wp-content/plugins/snipApp/includes/js/jquery-1.11.1.min.js');
 wp_register_script('snipFiles', '/wp-content/plugins/snipApp/includes/js/snipFiles.js');
-
-//wp_enqueue_script('jquery');
 wp_enqueue_script('snipFiles');
 
+wp_register_style('snipApp', '/wp-content/plugins/snipApp/includes/css/snipApp.css');
+wp_enqueue_style('snipApp');
+
 require_once WP_SNIP_APP_PLUGIN_DIR . '/settings.php';
+
+
+
+
 
 ?>
