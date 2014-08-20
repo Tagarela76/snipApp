@@ -26,6 +26,7 @@ Author URI: http://localhost
 */
 
 global $snipGeneral;
+global $snipAppManager;
 
 define( 'WP_SNIP_APP_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
 

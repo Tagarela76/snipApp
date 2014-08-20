@@ -14,6 +14,7 @@ class Snip_App_ShortCode_Manager
 
     function viewSearchSnipFile($attr)
     {
+        $folderList = SnipAppManagerClass::getFolderListByFolderName('RTF');
         ob_start();
         //get_template_part(WP_SNIP_APP_PLUGIN_DIR . '/views/searchSnipFile.php');
         include(WP_SNIP_APP_PLUGIN_DIR . '/views/searchSnipFile.php');
