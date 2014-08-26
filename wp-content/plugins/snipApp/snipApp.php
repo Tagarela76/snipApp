@@ -31,7 +31,8 @@ global $snipAppManager;
 define( 'WP_SNIP_APP_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
 
 wp_register_script('snipFiles', '/wp-content/plugins/snipApp/includes/js/snipFiles.js');
-wp_enqueue_script('snipFiles');
+wp_register_script('kendo', '/wp-content/plugins/snipApp/includes/js/kendo.web.min.js');
+wp_enqueue_script('kendo');
 
 wp_register_style('snipApp', '/wp-content/plugins/snipApp/includes/css/snipApp.css');
 wp_enqueue_style('snipApp');

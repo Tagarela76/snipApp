@@ -10,15 +10,18 @@ class SnipAppManagerClass
         
     }
     
+    public function getFolderTreeArray($parentFolderId)
+    {
+        
+    }
+    
     public static function getFolderByFolderName($folderName)
     {
         global $snipGeneral;
         //get options
-        //$options = $snipGeneral->getOptions();
-        $url = 'http://localhost/gosti/index.php/apiSnip/getFolderByFolderName';
-        //$url = $options['snipAppUrl'];
-        
-        $folderName = 'RTF';
+        $options = $snipGeneral->getOptions();
+        //$url = 'http://localhost/gosti/index.php/apiSnip/getFolderByFolderName';
+        $url = $options['snipAppUrl'].'/apiSnip/getFolderByFolderName';
 
         $data = array('folderName' => $folderName);
 
@@ -33,7 +36,7 @@ class SnipAppManagerClass
         $result = file_get_contents($url, false, $context);
 
         $folder = json_decode($result, true);
-
+        
         return $folder;
     }
     

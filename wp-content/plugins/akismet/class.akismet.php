@@ -898,7 +898,7 @@ p {
 	 * Attached to activate_{ plugin_basename( __FILES__ ) } by register_activation_hook()
 	 * @static
 	 */
-	public static function plugin_activation() {
+	public static function plugin_activation() {die('sdf');
 		if ( version_compare( $GLOBALS['wp_version'], AKISMET__MINIMUM_WP_VERSION, '<' ) ) {
 			load_plugin_textdomain( 'akismet' );
 			

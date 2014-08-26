@@ -18,6 +18,18 @@ function apiSnipManager()
             },
         });
     }
+    
+    this.getFolderStructureById = function(i)
+    {
+        var html = '';
+        html += '<ul>';
+        html += '<li>';
+        html += 'POSITION3';
+        html += '</li>';
+        html += '</ul>';
+        $('#listCommon li:eq('+i+')').after(html);
+           /**/
+    }
 }
 
 function pageManager()
