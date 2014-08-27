@@ -12,7 +12,8 @@ class snipGenerateClass
     
     const FILE_EXTENSION = 'pdf';
     
-    const API_URL = 'http://localhost/gosti/index.php/api/snipFileSearch';
+    //const API_URL = 'http://localhost/gosti';
+    const API_URL = 'http://5.9.156.3/~gosti';
     
     public function __construct()
     {

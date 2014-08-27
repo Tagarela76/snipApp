@@ -4,11 +4,11 @@ global $snipGeneral;
 //get options
 $options = $snipGeneral->getOptions();
 //$url = 'http://localhost/gosti/index.php/api/snipFileSearch';
-$url = $options['snipAppUrl'];
+$url = $options['snipAppUrl'].'/apiSnip/getFileListByFolderId';
 
-$searchFile = $_POST['fileName'];
+$folderId = $_POST['folderId'];
 
-$data = array('ext' => $options['ext'], 'searchString' => $searchFile);
+$data = array('ext' => $options['ext'], 'folderId' => $folderId);
 
 $options = array(
     'http' => array(
@@ -18,9 +18,15 @@ $options = array(
     ),
 );
 $context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
+$fileList = file_get_contents($url, false, $context);
+$fileList = json_decode($fileList, true);
+$html = '';
+foreach($fileList as $file){
+    $html .= $file['name'];
+}
 
-$fileList = json_decode($result);
+
+echo $html;
 
 
 

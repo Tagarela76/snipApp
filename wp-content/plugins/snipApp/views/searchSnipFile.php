@@ -1,30 +1,3 @@
-<!--<div style="display: block; height: 1000px;">
-    <div id='folderListContainer' style="width: 70%; float: left;">
-        <ul id="listView">
-            <?php $i = 0;?>
-            <?php foreach ($folderList as $folder): ?>
-                <li>
-                    <span onclick="page.snipApi.getFolderStructureById(<?php echo $i;?>);">
-                        <?php echo $folder['name']; ?>
-                    </span>
-                </li>
-            <?php $i++;?>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-    <div style="pane-content">
-        <div>
-            <input type = "text" id="fileName" value=""/>
-            <input type="button" value="FIND FILES" id='searchFileButton' onclick='page.snipApi.findFileByName();'/> 
-        </div>
-        <div id='snipFileLoadingContainer' style="display: none;">
-            <img src="wp-content/plugins/snipApp/includes/images/loading.gif"/>
-        </div>
-        <div id='snipFileListContainer'>
-
-        </div>
-    </div>
-</div>-->
 <div class="k-block">
     
     <div id="horizontal"  style="height: 567px;">
@@ -41,6 +14,8 @@
         </div>
     </div>
 </div>
+<input type="hidden" value="<?=$treeUrl?>" id="folderTreeUrl"/>
+
 <script type="text/x-kendo-template" id="template">
     <div class="product">
         <img src="" alt="#: name # image" />
@@ -49,6 +24,8 @@
 </script>
 <script>
     var serviceRoot = "";
+    var folderTreeUrl = $('#folderTreeUrl').val();
+    console.log(folderTreeUrl);
     function onSelect(e) {
         var dataSource;
         var treeview = $("#treeview").data("kendoTreeView");
@@ -64,18 +41,18 @@
             type: "post",
             data: {'folderId':dataItem.id},
             success: function(html){
+                $('#listView').html(html);
                 console.log(html);
             },
         });
-        
-
     }
     
     homogeneous = new kendo.data.HierarchicalDataSource({
         transport: {
             read: {
-                url: "http://localhost/gosti/index.php/apiSnip/getFolderTreeArray?folderId=507",
-                dataType: "json"
+                url: folderTreeUrl,
+                //url: 'http://localhost/gosti/apiSnip/getFolderTreeArray?folderId=1',
+                dataType: "jsonp"
             }
         },
         schema: {
