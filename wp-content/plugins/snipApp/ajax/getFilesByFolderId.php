@@ -2,13 +2,13 @@
 require( dirname(__FILE__) . '/../../../../wp-load.php' );
 global $snipGeneral;
 //get options
-$options = $snipGeneral->getOptions();
+$snipPluginOptions = $snipGeneral->getOptions();
 //$url = 'http://localhost/gosti/index.php/api/snipFileSearch';
-$url = $options['snipAppUrl'].'/apiSnip/getFileListByFolderId';
+$url = $snipPluginOptions['snipAppUrl'].'/apiSnip/getFileListByFolderId';
 
 $folderId = $_POST['folderId'];
 
-$data = array('ext' => $options['ext'], 'folderId' => $folderId);
+$data = array('ext' => $snipPluginOptions['ext'], 'folderId' => $folderId);
 
 $options = array(
     'http' => array(
@@ -19,10 +19,16 @@ $options = array(
 );
 $context  = stream_context_create($options);
 $fileList = file_get_contents($url, false, $context);
+
 $fileList = json_decode($fileList, true);
 $html = '';
 foreach($fileList as $file){
+    $html .= '<div>';
+    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/readSnipFile?id='.$file['id'].'" class="snip-file-name"  target="_blank" >';
     $html .= $file['name'];
+    $html .= '</a>';
+    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/SnipFileLoad?id='.$file['id'].'">скачать</a>';
+    $html .= '</div>';
 }
 
 

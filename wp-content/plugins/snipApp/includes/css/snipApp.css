@@ -5,3 +5,13 @@
 .snip-file-name{
     color: #000000;
 }
+
+.pane-content{
+    width: 40%;
+    float: left;
+}
+
+.pane-content2{
+    width: 60%;
+    float: left;
+}

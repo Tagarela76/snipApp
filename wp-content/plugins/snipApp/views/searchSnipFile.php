@@ -7,9 +7,11 @@
             </div>
         </div>
         <div>
-            <div class="pane-content content2">
+            <div class="pane-content2">
+                <div id='snipFileLoadingContainer' style="display: none;">
+                    <img src="wp-content/plugins/snipApp/includes/images/loading.gif"/>
+                </div>
                     <div id="listView"></div>
-                    <!--<div id="pager" class="k-pager-wrap"></div>-->
             </div>
         </div>
     </div>
@@ -27,6 +29,7 @@
     var folderTreeUrl = $('#folderTreeUrl').val();
     console.log(folderTreeUrl);
     function onSelect(e) {
+        $('#snipFileLoadingContainer').show();
         var dataSource;
         var treeview = $("#treeview").data("kendoTreeView");
         var dataItem = treeview.dataItem(e.node);
@@ -42,7 +45,7 @@
             data: {'folderId':dataItem.id},
             success: function(html){
                 $('#listView').html(html);
-                console.log(html);
+                $('#snipFileLoadingContainer').hide();
             },
         });
     }
@@ -51,7 +54,7 @@
         transport: {
             read: {
                 url: folderTreeUrl,
-                //url: 'http://localhost/gosti/apiSnip/getFolderTreeArray?folderId=1',
+                //dataType: "jsonp"
                 dataType: "jsonp"
             }
         },
