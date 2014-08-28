@@ -1,7 +1,7 @@
 <div class="k-block">
     
     <div id="horizontal"  style="height: 567px;">
-        <div>
+        <div class="k-pane k-scrollable">
             <div class="pane-content">
                 <div id="treeview" class="demo-section"></div>
             </div>
@@ -11,7 +11,8 @@
                 <div id='snipFileLoadingContainer' style="display: none;">
                     <img src="wp-content/plugins/snipApp/includes/images/loading.gif"/>
                 </div>
-                    <div id="listView"></div>
+                <div id="listView">
+                </div>
             </div>
         </div>
     </div>
@@ -50,25 +51,5 @@
         });
     }
     
-    homogeneous = new kendo.data.HierarchicalDataSource({
-        transport: {
-            read: {
-                url: folderTreeUrl,
-                //dataType: "jsonp"
-                dataType: "jsonp"
-            }
-        },
-        schema: {
-            model: {
-               children: "items"
-            }
-        }
-    });
-    $("#treeview").kendoTreeView({
-        dataSource: homogeneous,
-        dataTextField: "name",
-        loadOnDemand: false,
-        select: onSelect,
-    });
-    $("#treeview").data("kendoTreeView").select(".k-item:first")
+    
 </script>

@@ -18,18 +18,6 @@ function apiSnipManager()
             },
         });
     }
-    
-    this.getFolderStructureById = function(i)
-    {
-        var html = '';
-        html += '<ul>';
-        html += '<li>';
-        html += 'POSITION3';
-        html += '</li>';
-        html += '</ul>';
-        $('#listCommon li:eq('+i+')').after(html);
-           /**/
-    }
 }
 
 function pageManager()
@@ -42,4 +30,26 @@ var page;
 
 $(function() {
    page = new pageManager();
+   
+   homogeneous = new kendo.data.HierarchicalDataSource({
+        transport: {
+            read: {
+                url: folderTreeUrl,
+                //dataType: "jsonp"
+                dataType: "jsonp"
+            }
+        },
+        schema: {
+            model: {
+               children: "items"
+            }
+        }
+    });
+    $("#treeview").kendoTreeView({
+        dataSource: homogeneous,
+        dataTextField: "name",
+        loadOnDemand: false,
+        select: onSelect,
+    });
+    $("#treeview").data("kendoTreeView").select(".k-item:first")
 });
