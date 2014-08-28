@@ -17,6 +17,8 @@ class Snip_App_ShortCode_Manager
     /**
      * 
      * @global type $snipGeneral
+     * 
+     * 
      * @param type $attr
      * 
      * @return type
