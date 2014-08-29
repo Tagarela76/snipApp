@@ -28,6 +28,7 @@ class Snip_App_ShortCode_Manager
         global $snipGeneral;
         //get options
         $options = $snipGeneral->getOptions();
+        $snipApiUrl = $options['snipAppUrl'];
         $treeUrl = $options['snipAppUrl'].'/apiSnip/getFolderTreeArray?folderId=1';
         ob_start();
         //get_template_part(WP_SNIP_APP_PLUGIN_DIR . '/views/searchSnipFile.php');

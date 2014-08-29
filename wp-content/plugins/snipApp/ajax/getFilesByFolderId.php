@@ -23,11 +23,13 @@ $fileList = file_get_contents($url, false, $context);
 $fileList = json_decode($fileList, true);
 $html = '';
 foreach($fileList as $file){
+    
     $html .= '<div>';
-    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/readSnipFile?id='.$file['id'].'" class="snip-file-name"  target="_blank" >';
+    //$html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/readSnipFile?id='.$file['id'].'" class="snip-file-name"  target="_blank" >';
+    $html .= '<a class="snip-file-name" onclick="page.pdfReaderManager.readPdfFile('.$file['id'].')">';
     $html .= $file['name'];
     $html .= '</a>';
-    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/SnipFileLoad?id='.$file['id'].'">скачать</a>';
+    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/SnipFileLoad?id='.$file['id'].'"> скачать</a>';
     $html .= '</div>';
 }
 

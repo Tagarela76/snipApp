@@ -9,9 +9,21 @@
 .pane-content{
     width: 40%;
     float: left;
+    height:571px;
+    width:30%;
+    border:solid 2px orange;
+    overflow:scroll;
+    overflow-x:hidden;
+    overflow-y:scroll;
 }
 
 .pane-content2{
-    width: 60%;
+    width: 70%;
     float: left;
 }
+
+.readPDF{
+    height: 567px;
+    width: 100%;
+}
+
