@@ -3,12 +3,20 @@ require( dirname(__FILE__) . '/../../../../wp-load.php' );
 global $snipGeneral;
 //get options
 $snipPluginOptions = $snipGeneral->getOptions();
-//$url = 'http://localhost/gosti/index.php/api/snipFileSearch';
-$url = $snipPluginOptions['snipAppUrl'].'/index.php/api/snipFileSearch';
-//$searchFile = 'СНиП 12-04-2002';
-$searchFile = $_POST['fileName'];
 
-$data = array('ext' => $snipPluginOptions['ext'], 'searchString' => $searchFile);
+$url = $snipPluginOptions['snipAppUrl'].'/index.php/apiSnip/snipFileSearch';
+
+$searchFile = $_POST['fileName'];
+$folderId = $_POST['folderId'];
+
+//$searchFile = 'ВН 39-1.9-004';
+//$folderId = 18;
+
+$data = array('ext' => $snipPluginOptions['ext'], 'searchString' => $searchFile );
+
+if($folderId != ''){
+    $data['folderId'] = $folderId;
+}
 
 $options = array(
     'http' => array(
@@ -20,7 +28,7 @@ $options = array(
 $context  = stream_context_create($options);
 $result = file_get_contents($url, false, $context);
 
-$fileList = json_decode($result);
+$fileList = json_decode($result, true);
 
 if(is_null($fileList)){
     echo 'Сервер не доступен';
@@ -35,10 +43,11 @@ if($fileList == 'not found'){
 $html = '<ul>';
 foreach($fileList as $file){
     $html .= '<li>';
-    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/readSnipFile?id='.$file->id.'" class="snip-file-name"  target="_blank" >';
-    $html .= $file->name;
+    //$html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/readSnipFile?id='.$file['id'].'" class="snip-file-name"  target="_blank" >';
+    $html .= '<a class="snip-file-name" onclick="page.pdfReaderManager.readPdfFile('.$file['id'].')">';
+    $html .= $file['name'];
     $html .= '</a>';
-    $html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/SnipFileLoad?id='.$file->id.'">скачать</a>';
+    //$html .= '<a href="'.$snipPluginOptions['snipAppUrl'].'/index.php/api/SnipFileLoad?id='.$file['id'].'"> скачать</a>';
     $html .= '</li>';
 }
 $html .= '</ul>';

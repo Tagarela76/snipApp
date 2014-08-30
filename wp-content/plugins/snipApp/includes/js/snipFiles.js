@@ -75,20 +75,27 @@ function apiSnipManager()
 {
     this.findFileByName = function()
     {
-        this.fileName = $('#fileName').val();
-        $('#searchFileButton').hide();
-        $('#snipFileLoadingContainer').show();
-        $.ajax({
-            url: 'wp-content/plugins/snipApp/ajax/findFile.php',
-            dataType: "html",
-            type: "post",
-            data: {'fileName': this.fileName},
-            success: function(html) {
-                $('#snipFileListContainer').html(html);
-                $('#searchFileButton').show();
-                $('#snipFileLoadingContainer').hide();
-            },
-        });
+        this.fileName = $('#searchString').val();
+        this.folderId = $('#selectedFolderId').val();
+        if (this.folderId == '') {
+            alert('Выберите папку');
+        } else {
+            $('#searchFileButton').hide();
+            $('#snipFileLoadingContainer').show();
+            $('#listView').hide();
+            $.ajax({
+                url: 'wp-content/plugins/snipApp/ajax/findFile.php',
+                dataType: "html",
+                type: "post",
+                data: {'fileName': this.fileName, folderId: this.folderId},
+                success: function(html) {
+                    $('#listView').html(html);
+                    $('#searchFileButton').show();
+                    $('#snipFileLoadingContainer').hide();
+                    $('#listView').show();
+                },
+            });
+        }
     }
 
 
@@ -105,6 +112,8 @@ function apiSnipManager()
             selectable: "multiple",
             template: kendo.template($("#template").html())
         });
+        //set selected folder Id
+        $('#selectedFolderId').val(dataItem.id);
         $.ajax({
             url: 'wp-content/plugins/snipApp/ajax/getFilesByFolderId.php',
             dataType: "html",

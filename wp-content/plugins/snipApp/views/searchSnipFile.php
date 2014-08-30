@@ -25,12 +25,17 @@
         </div>
         <div>
             <div class="pane-content2">
+                <div id="searchStringContainer">
+                    <input type="text" id="searchString">
+                    <input type="button" value="Найти" onclick="page.snipApi.findFileByName();" id="searchFileButton">
+                    <input type="hidden" value="" id="selectedFolderId">
+                </div>
                 <div id='snipFileLoadingContainer' style="display: none;">
                     <img src="wp-content/plugins/snipApp/includes/images/loading.gif"/>
                 </div>
                 <div id="listView">
                 </div>
-                <div id="readPDF" class="readPDF">
+                <div id="readPDF" class="readPDF" >
                 </div>
             </div>
         </div>
