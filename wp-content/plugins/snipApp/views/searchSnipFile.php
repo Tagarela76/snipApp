@@ -14,10 +14,14 @@
     }
     
     
+    
 </style>
 <div class="k-block">
     
-    <div id="horizontal"  style="height: 700px;">
+    <div id="horizontal"  style="height: 750px;">
+        <div>
+            <h1>Поиск по Снипам</h1>
+        </div>
         <div>
             <div class="pane-content">
                 <div id="treeview" class="demo-section"></div>
@@ -25,9 +29,9 @@
         </div>
         <div>
             <div class="pane-content2">
-                <div id="searchStringContainer">
-                    <input type="text" id="searchString">
-                    <input type="button" value="Найти" onclick="page.snipApi.findFileByName();" id="searchFileButton">
+                <div id="searchStringContainer" class="searchStringContainer">
+                    <input type="text" class="searhFileString" id="searchString" />
+                    <input type="button" value="Найти" onclick="page.snipApi.findFileByName();" id="searchFileButton" class="searchFileButton">
                     <input type="hidden" value="" id="selectedFolderId">
                 </div>
                 <div id='snipFileLoadingContainer' style="display: none;">

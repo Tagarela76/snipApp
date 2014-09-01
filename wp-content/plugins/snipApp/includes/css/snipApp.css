@@ -27,8 +27,30 @@
     width: 100%;
 }
 
-#listView{
-   max-height: 567px;
- //  overflow:scroll;
-   overflow-y:scroll;
+.searhFileString{
+    border: 1px solid #787878!important;
+    width:70%!important;
+    margin:0 auto!important;
+    display:block!important;
 }
+
+.searchFileButton{
+    float: right;
+    margin: 15px 15% 0 0;
+/*    color: #fff; 
+    background-color: #428bca; 
+    border-color: #357ebd; */
+}
+
+#listView{
+    max-height: 567px;
+    overflow-y:scroll;
+    margin:0 auto;
+    display: block;
+}
+
+.searchStringContainer{
+    display: block;
+    height: 75px;
+}
+
