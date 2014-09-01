@@ -17,7 +17,7 @@
 </style>
 <div class="k-block">
     
-    <div id="horizontal"  style="height: 567px;">
+    <div id="horizontal"  style="height: 700px;">
         <div>
             <div class="pane-content">
                 <div id="treeview" class="demo-section"></div>
