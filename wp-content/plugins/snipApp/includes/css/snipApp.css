@@ -37,9 +37,9 @@
 .searchFileButton{
     float: right;
     margin: 15px 15% 0 0;
-/*    color: #fff; 
+    color: #fff; 
     background-color: #428bca; 
-    border-color: #357ebd; */
+    border-color: #357ebd; 
 }
 
 #listView{
