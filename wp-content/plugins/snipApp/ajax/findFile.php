@@ -7,8 +7,8 @@ $snipPluginOptions = $snipGeneral->getOptions();
 $url = $snipPluginOptions['snipAppUrl'].'/index.php/apiSnip/snipFileSearch';
 
 $searchFile = $_POST['fileName'];
-$folderId = $_POST['folderId'];
-
+//$folderId = $_POST['folderId'];
+$folderId = '';
 //$searchFile = 'ВН 39-1.9-004';
 //$folderId = 18;
 

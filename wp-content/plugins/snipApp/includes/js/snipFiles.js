@@ -77,12 +77,13 @@ function apiSnipManager()
     {
         this.fileName = $('#searchString').val();
         this.folderId = $('#selectedFolderId').val();
-        if (this.folderId == '') {
+        /*if (this.folderId == '') {
             alert('Выберите папку');
-        } else {
+        } else {*/
             $('#searchFileButton').hide();
             $('#snipFileLoadingContainer').show();
             $('#listView').hide();
+            $('#readPDF').html('');
             $.ajax({
                 url: 'wp-content/plugins/snipApp/ajax/findFile.php',
                 dataType: "html",
@@ -95,7 +96,7 @@ function apiSnipManager()
                     $('#listView').show();
                 },
             });
-        }
+        //}
     }
 
 
