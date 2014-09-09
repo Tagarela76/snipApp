@@ -45,7 +45,7 @@
 #listView{
     max-height: 595px;
     overflow-y:scroll;
-    margin:0 auto;
+    margin: 0 0 0 15px;
     display: block;
 }
 

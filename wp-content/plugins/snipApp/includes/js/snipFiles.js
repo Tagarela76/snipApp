@@ -162,3 +162,10 @@ $(function() {
     });
     $("#treeview").data("kendoTreeView").select(".k-item:first")
 });
+
+$(document).keypress(function(event){
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == '13'){
+		page.snipApi.findFileByName();	
+	}
+});

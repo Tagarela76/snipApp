@@ -32,7 +32,7 @@
                 <div id="searchStringContainer" class="searchStringContainer">
                     <div class="searchbox">
                         <input type="text" class="searhFileString" id="searchString"/>
-                        <img src="/example/public_html/wp-content/plugins/snipApp/images/img-search.png" class="search-snip-icon" alt="Search" onclick="page.snipApi.findFileByName();"/>
+                        <img src="wp-content/plugins/snipApp/images/img-search.png" class="search-snip-icon" alt="Search" onclick="page.snipApi.findFileByName();"/>
                     </div>
                     <!--<input type="button" value="Найти" onclick="page.snipApi.findFileByName();" id="searchFileButton" class="searchFileButton">-->
                     <input type="hidden" value="" id="selectedFolderId">
