@@ -77,9 +77,9 @@ function apiSnipManager()
     {
         this.fileName = $('#searchString').val();
         this.folderId = $('#selectedFolderId').val();
-        /*if (this.folderId == '') {
-            alert('Выберите папку');
-        } else {*/
+        if (this.fileName == '') {
+            alert('Введите название документа');
+        } else {
             $('#searchFileButton').hide();
             $('#snipFileLoadingContainer').show();
             $('#listView').hide();
@@ -96,7 +96,7 @@ function apiSnipManager()
                     $('#listView').show();
                 },
             });
-        //}
+        }
     }
 
 
